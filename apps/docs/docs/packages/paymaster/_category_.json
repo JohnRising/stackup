@@ -3,6 +3,7 @@
   "position": 4,
   "link": {
     "type": "generated-index",
+    "title": "🚧 Paymaster",
     "description": "A framework for handling custom fee logic on any received UserOperation."
   }
 }

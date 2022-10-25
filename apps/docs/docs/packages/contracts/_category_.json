@@ -3,6 +3,7 @@
   "position": 3,
   "link": {
     "type": "generated-index",
+    "title": "🚧 Contracts",
     "description": "Modular Solidity libraries for creating compliant Wallets and Paymasters."
   }
 }

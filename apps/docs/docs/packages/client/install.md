@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Installation
+# Install
 
 A guide to spinning up an RPC client to handle ops.
 
@@ -30,9 +30,20 @@ In the meantime, feel free the to read the docs and give us your feedback on [Di
 
 Make sure to have your environment variables configured before running the client. See the [configuration page](./configuration.md) for details.
 
+Install with go:
+
 ```bash
 go install github.com/stackup-wallet/stackup-bundler@latest
+```
 
-# Configure env vars before running the bundler
-stackup-bundler
+Run an instance in `private` mode:
+
+```bash
+stackup-bundler start --mode private
+```
+
+For a description on the CLI commands:
+
+```bash
+stackup-bundler start --help
 ```

@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Configuration
+# Configure
 
 Options to configure a standalone RPC client.
 
@@ -13,11 +13,14 @@ The client can be configured through environment variables. Some variables may b
 Required variables:
 
 ```bash
-# Connection string to a standard Ethereum node.
-ERC4337_BUNDLER_RPC_URL
-
 # The private key for the EOA used to relay bundles to the EntryPoint.
 ERC4337_BUNDLER_PRIVATE_KEY
+
+# Connection string to a Redis backed mempool.
+ERC4337_BUNDLER_REDIS_URL
+
+# Connection string to a standard Ethereum node.
+ERC4337_BUNDLER_RPC_URL
 ```
 
 Optional variables:
