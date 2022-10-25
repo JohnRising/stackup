@@ -68,7 +68,7 @@ Used to submit a [`UserOperation`](../../introduction/erc-4337-overview.md#usero
 
 ### `eth_supportedEntryPoints`
 
-Returns an array of supported [EntryPoint](../../introduction/erc-4337-overview.md#entrypoint) addresses as specified in the [configuration](./configuration.md). The first element is the client's preferred EntryPoint.
+Returns an array of supported [EntryPoint](../../introduction/erc-4337-overview.md#entrypoint) addresses as specified in the [configuration](./configure.md). The first element is the client's preferred EntryPoint.
 
 #### Request
 
