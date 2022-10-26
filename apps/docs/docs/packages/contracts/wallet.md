@@ -12,7 +12,7 @@ The `Base` implements the core interface of an ERC-4337 wallet with a specific t
 
 ## Example Contract
 
-A smart contract wallet typically looks like this.
+A smart contract wallet typically looks like this:
 
 ```solidity
 // Example smart contract wallet composed of a base and extension.
@@ -41,7 +41,7 @@ Alternatively, the package also exports the minimum interface required to build 
 
 ## Minimum viable interface
 
-The minimum interface that must be implemented in order to be a compliant ERC-4337 wallet.
+This is the minimum interface that must be implemented in order to be a compliant ERC-4337 wallet.
 
 This interface is included in all [`Base`](#base) contracts. If you use a pre-built `Base`, you do not need to add this interface to your wallet.
 

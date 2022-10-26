@@ -27,5 +27,4 @@ abstract contract Authenticate {
     _;
   }
 }
-
 ```
