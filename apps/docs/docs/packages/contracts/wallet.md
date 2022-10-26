@@ -209,6 +209,7 @@ The `WithReceive` extension has a single public function, `receive`:
 
 ```solidity
 receive() external payable;
+
 ```
 
 ### `WithExecute`
