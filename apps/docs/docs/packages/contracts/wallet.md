@@ -27,6 +27,7 @@ import "@PackageName/contracts/ERC4337/wallet/WithExtension.sol";
 contract Wallet is Base, WithExtension {
   constructor(address entryPoint) Base(entryPoint) {}
 }
+
 ```
 
 :::info
