@@ -6,7 +6,7 @@ sidebar_position: 2
 
 Options to configure a paymaster service.
 
-The client can be configured either through a `.paymasterrc.json` file or using environment variables.
+The `Paymaster` service can be configured either through a `.paymasterrc.json` file or using environment variables.
 
 ## JSON options
 

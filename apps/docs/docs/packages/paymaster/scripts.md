@@ -14,9 +14,11 @@ yarn run PackageName <command> --flag=value
 
 ## Managing stake
 
-A paymaster must stake ETH to the `EntryPoint` contract in order to sponsor a wallet's `UserOperation`. These commands are used to help manage the stake on a supported `EntryPoint`.
+A paymaster must stake a blockchain's native token (usually ETH) to the `EntryPoint` contract in order to sponsor a wallet's `UserOperation`. These commands are used to help manage the stake on a supported `EntryPoint`.
 
 ### `addStake`
+
+Adds stake to a paymaster contract.
 
 In order to consent to being a paymaster, you will need to send and lock an amount of ETH to the `EntryPoint` to be staked. It can only be unlocked after a given time set by `unstakeDelaySec`. This action will also cancel any pending unlock.
 
@@ -94,7 +96,7 @@ yarn run PackageName depositTo
 
 ### `withdrawTo`
 
-Withdraws a specified amount from the senders deposit.
+Withdraws a specified amount from the sender's deposit.
 
 ```bash
 yarn run PackageName withdrawTo

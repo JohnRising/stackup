@@ -8,7 +8,7 @@ A reference to the supported RPC methods.
 
 ## Paymaster methods
 
-Methods related to sponsoring a `UserOperation` as an ERC-4337 paymaster.
+These methods relate to sponsoring a `UserOperation` as an ERC-4337 paymaster.
 
 ### `eth_sponsorUserOperation`
 
