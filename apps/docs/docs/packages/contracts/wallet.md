@@ -110,21 +110,24 @@ The `initialize` function is used to initialize a Proxy. Can only be called once
 
 ```solidity
 function initialize(address owner) external initializer;
+
 ```
 
 The read only function `getOwner` returns the address of the current owner.
 
 ```solidity
 function getOwner() external view returns (address);
+
 ```
 
 To transfer ownership to a new EOA, call `transferOwner`.
 
 ```solidity
 function transferOwner(address account) external authenticate;
+
 ```
 
-`_validateSignature` is an internal function to validaate if a hash was signed by the current owner.
+`_validateSignature` is an internal function to validate if a hash was signed by the current owner.
 
 ```solidity
 function _validateSignature(
