@@ -30,4 +30,5 @@ struct UserOperation {
   bytes paymasterAndData;
   bytes signature;
 }
+
 ```

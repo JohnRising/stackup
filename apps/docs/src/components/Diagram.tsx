@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Diagram() {
+export default function Diagram(): JSX.Element {
   return (
     <div>
       <svg

@@ -6,7 +6,8 @@
     "prettier"
   ],
   "parserOptions": {
-    "ecmaVersion": "latest"
+    "ecmaVersion": "latest",
+    "soureType": "module"
   },
   "env": {
     "node": true,

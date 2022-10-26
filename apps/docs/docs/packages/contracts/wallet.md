@@ -197,6 +197,7 @@ import "@PackageName/contracts/ERC4337/wallet/WithReceive.sol";
 contract Wallet is BaseEOAOwner, WithReceive {
   constructor(address entryPoint) BaseEOAOwner(entryPoint) {}
 }
+
 ```
 
 #### Functions

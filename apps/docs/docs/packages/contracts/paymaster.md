@@ -26,6 +26,7 @@ import "@PackageName/contracts/ERC4337/paymaster/SimplePaymaster.sol";
 contract Paymaster is BaseEOAOwner, SimplePaymaster {
   constructor(address entryPoint) BaseEOAOwner(entryPoint) {}
 }
+
 ```
 
 :::info
@@ -68,6 +69,7 @@ interface IERC4337Paymaster {
     uint256 actualGasCost
   ) external;
 }
+
 ```
 
 The `validatePaymasterUserOp` function is called by the `EntryPoint` during the [verification phase](../../introduction/erc-4337-overview.md#entrypoint). It has the following arguments:
