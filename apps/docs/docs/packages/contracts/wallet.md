@@ -110,7 +110,6 @@ The `initialize` function is used to initialize a Proxy. Can only be called once
 
 ```solidity
 function initialize(address owner) external initializer;
-
 ```
 
 The read only function `getOwner` returns the address of the current owner.
