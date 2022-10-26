@@ -48,6 +48,7 @@ This interface is included in all [`Base`](#base) contracts. If you use a pre-bu
 
 ```solidity
 import "@PackageName/contracts/ERC4337/wallet/IERC4337Wallet.sol";
+
 ```
 
 ```solidity
@@ -93,6 +94,7 @@ To use it, import it from the Stackup contracts library:
 
 ```solidity
 import "@PackageName/contracts/ERC4337/wallet/BaseEOAOwner.sol";
+
 ```
 
 And select it as the base in your wallet contract.
@@ -185,6 +187,7 @@ To use it in your wallets, import `WithReceive` from the Stackup contracts libra
 
 ```solidity
 import "@PackageName/contracts/ERC4337/wallet/WithReceive.sol";
+
 ```
 
 And add it as an extension in your wallet contract. For example:
@@ -220,6 +223,7 @@ In your smart contract, import it from the Stackup contracts library:
 
 ```solidity
 import "@PackageName/contracts/ERC4337/wallet/WithExecute.sol";
+
 ```
 
 #### Functions
