@@ -6,7 +6,28 @@ sidebar_position: 5
 
 Solidity components for ERC-4337 Paymasters.
 
-A `Paymaster` is similar to [`Extensions`](./wallet.md#extensions). They should be paired with a `Base`, but unlike `Extensions`, you should only use one `Paymaster` per wallet.
+A `Paymaster` is a `Contract Account` designed to pay fees. It is constructed from a wallet `Base` and is paired with one `Paymaster` extension.
+
+Unlike wallet `Extensions`, you should only use one `Paymaster` per wallet.
+
+## Example Paymaster Contract
+
+A typical paymaster contract looks like this:
+
+```solidity
+// This is an example of a Paymaster contract.
+pragma solidity ^0.8.0;
+
+// Add base and paymaster from Stackup's contract library
+import "@PackageName/contracts/ERC4337/wallet/BaseEOAOwner.sol";
+import "@PackageName/contracts/ERC4337/paymaster/SimplePaymaster.sol";
+
+// Build the paymaster
+contract Paymaster is BaseEOAOwner, SimplePaymaster {
+  constructor(address entryPoint) BaseEOAOwner(entryPoint) {}
+}
+
+```
 
 :::info
 
@@ -20,7 +41,9 @@ Alternatively, the package also exports the minimum interface required to build 
 
 ## Minimum viable interface
 
-The minimum interface that must be implemented in order to be a compliant ERC-4337 paymaster.
+This is the minimum interface that must be implemented in order to be a compliant ERC-4337 paymaster.
+
+This interface is included in all [`Paymaster` implementations](#implementations).
 
 ```solidity
 import @PackageName/contracts/ERC4337/paymaster/IERC4337Paymaster.sol;
@@ -49,7 +72,7 @@ interface IERC4337Paymaster {
 
 ```
 
-The `validatePaymasterUserOp` function is what get's called by the `EntryPoint` during the [verification phase](../../introduction/erc-4337-overview.md#entrypoint). It has the following arguments:
+The `validatePaymasterUserOp` function is called by the `EntryPoint` during the [verification phase](../../introduction/erc-4337-overview.md#entrypoint). It has the following arguments:
 
 - [`UserOperation`](./useroperation.md)
 - `requestId`: Hash of `UserOperation`, `EntryPoint` address, and `chainId`
@@ -65,15 +88,19 @@ If `validatePaymasterUserOp` agrees to sponsor the transaction it will return a 
 
 ## Implementations
 
-Various implementations of an ERC-4337 paymaster. Use one that matches the fee logic you require. A `Paymaster` will validate a signature in accordance with the [`Base`](./wallet.md#base) used.
+Stackup has various implementations of an ERC-4337 paymaster. Use one that matches the fee logic you require. A `Paymaster` will validate a signature in accordance with the [`Base`](./wallet.md#base) used.
 
 ### `SimplePaymaster`
 
 If the `requestId` signature is valid, the `Paymaster` will agree to sponsor the `UserOperation` without doing anything else in `postOp`. This could be a good option for apps where the business logic for transaction fees happens either off-chain or through some other mechanism.
 
+To use the `SimplePaymaster` implementation, import it from the package:
+
 ```solidity
 import @PackageName/contracts/ERC4337/paymaster/SimplePaymaster.sol;
 ```
+
+And add it to your paymaster contract:
 
 ```solidity
 contract Paymaster is BaseEOAOwner, SimplePaymaster {

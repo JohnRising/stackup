@@ -6,7 +6,7 @@ sidebar_position: 1
 
 A guide to spinning up an RPC client to handle ops.
 
-This package is a Go implementation of an ERC-4337 `Bundler`. The current version supports a private mempool with a P2P version on the road map.
+This package is a Go implementation of an ERC-4337 `Bundler`. The current version supports a private mempool with a peer-to-peer (P2P) version on the roadmap.
 
 This package is open source at [github.com/stackup-wallet/stackup-bundler](https://github.com/stackup-wallet/stackup-bundler).
 

@@ -2,19 +2,46 @@
 sidebar_position: 2
 ---
 
+import Diagram from "../../src/components/Diagram";
+
 # ERC-4337 Overview
 
 A quick overview of the standard for developers.
 
 :::info
 
-This overview does not yet cover the `Aggregator`. The latest addition to the EIP to support aggregated signatures.
+This overview does not yet cover the `Aggregator`, the latest addition to the EIP to support aggregated signatures.
 
 :::
 
 ## Introduction
 
 This page gives a simplified overview of ERC-4337 so that developers can get a basic understanding of the different components and how they can be pieced together to build their applications. **For a full run down on the spec we recommend going straight to the [source](https://eips.ethereum.org/EIPS/eip-4337).**
+
+## Architecture
+
+There are five main components to ERC-4337: a `UserOperation`, `Bundler`, `EntryPoint`, `Wallet`, and `Paymaster`.
+
+![Major components of ERC-4337](../../static/img/intro-diagram.png)
+
+- **`UserOperations`** are pseudo-transaction objects that are used to execute transactions with contract accounts. These are created by your app.
+- **`Bundlers`** are actors that package `UserOperations` from a mempool and send them to the `EntryPoint` contract on the blockchain.
+- **`EntryPoint`** is a smart contract that handles the verification and execution logic for transactions.
+- **`Wallets`** are smart contract accounts owned by a user.
+- **`Paymasters`** are optional smart contract accounts that can sponsor transactions for `Wallets`.
+
+In practice the process is complex. The typical lifecycle of a transaction looks like this:
+
+<Diagram />
+
+Stackup has built four packages to make handling this logic easy.
+
+1. **[Client SDK](../category/client-sdk)** helps you build `UserOperations`
+2. **[Client](../category/client)** submits `UserOperations` to the `EntryPoint` via `Bundlers`
+3. **[Paymaster](../category/paymaster)** handles custom fee logic
+4. **[Contracts](../category/contracts)** is a library of ERC-4337 smart contracts
+
+The following sections describe the `UserOperation`, `Bundler`, `EntryPoint`, `Wallet`, and `Paymaster` in more detail.
 
 ## UserOperation
 
@@ -33,17 +60,6 @@ All components of ERC-4337 revolve around a pseudo-transaction object called a `
 | `maxPriorityFeePerGas` | `uint256` | Similar to EIP-1559 priority fee                                              |
 | `paymasterAndData`     | `bytes`   | Paymaster address and any extra data required for verification and execution  |
 | `signature`            | `bytes`   | Used to validate a `UserOperation` along with the `nonce` during verification |
-
-## Architecture
-
-![ERC-4337 Architecture Simplified](../../static/img/erc4337-architecture-simplified.png)
-
-Although highly simplified, the above diagram shows the interactions between all the different components of the standard. We'll get into details of each component below, but on a high level a `UserOperation` has the following life cycle.
-
-1. A `UserOperation` is created in your app and signed by the user.
-2. The `UserOperation` is sent to a dedicated mempool.
-3. A `Bundler` batches multiple `UserOperations` from the mempool and relays them to the `EntryPoint`.
-4. The `EntryPoint` coordinates the verification and execution of the `UserOperation` via the `Wallet` and `Paymaster`.
 
 ### Bundler
 
@@ -81,7 +97,7 @@ The verification loop will also make sure that either the `Wallet` or `Paymaster
 
 :::info
 
-`Create2Factory` refers to [EIP-2470: Singleton Factory](https://eips.ethereum.org/EIPS/eip-2470). This is a permission-less contract used to deploy `Wallets` with the same deterministic address on any chain.
+`Create2Factory` refers to [EIP-2470: Singleton Factory](https://eips.ethereum.org/EIPS/eip-2470). This is a permissionless contract used to deploy `Wallets` with the same deterministic address on any chain.
 
 :::
 

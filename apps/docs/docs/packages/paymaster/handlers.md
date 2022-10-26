@@ -6,17 +6,19 @@ sidebar_position: 3
 
 Functions for handling paymaster business logic.
 
-The ERC-4337 spec is very flexible in terms of how we implement paymasters within our apps. However, regardless of the implementation, the three things all paymasters have to do is:
+The `Paymaster` framework allows you to create arbitrary fee logic for your application. All paymasters need to:
 
 1. Approve a `UserOperation`
-2. Manage it's stake on the `EntryPoint`
-3. Manage it's own assets
+2. Manage its stake on the `EntryPoint`
+3. Manage its own assets
 
 The framework will generate boilerplate handlers for certain functions. We can program these handlers to give us maximum flexibility in how we build the fee logic in our apps.
 
 ## Sign
 
-A big benefit of account abstraction is that it is agnostic to any signature scheme. This handler allows us to take the private key from our configuration and implement the logic to sign a given message.
+The `sign` handler allows you to sign a message using your paymaster's private key.
+
+A big benefit of account abstraction is that it is agnostic to any signature scheme. This handler allows you to implement custom logic to sign a given message.
 
 **`handlers/sign.ts`**
 
@@ -39,7 +41,9 @@ export default createSign((privateKey) => {
 
 ## Sponsor
 
-The rules for sponsoring a given `UserOperation` is dependant on your app. This handler allows you to implement any logic for [eth_sponsorUserOperation](./rpc-methods.md#ethsponsoruseroperation).
+The `sponserHandler` handler allows you to implement any logic for sponsoring a given `UserOperation`.
+
+Specifically, this handler allows you to implement any logic for [eth_sponsorUserOperation](./rpc-methods.md#ethsponsoruseroperation).
 
 **`handlers/sponsor.ts`**
 
@@ -63,7 +67,9 @@ export default sponsorHandler<T>(async (userOperation, config) => {
 
 ## Execute
 
-A paymaster is required to send transactions of it's own. The framework assumes that Paymaster is also an ERC-4337 wallet. This handler is called by all [scripts](./scripts.md) and can be used to make final adjustments to the `UserOperation`.
+The `executeHandler` is called by all [scripts](./scripts.md) to send transactions. It can also be used to make final adjustments to the `UserOperation`.
+
+The framework assumes that the paymaster contract is also an ERC-4337 `Contract Account` as described in the Stackup [paymaster contract](../contracts/paymaster) documentation.
 
 **`handlers/execute.ts`**
 

@@ -8,18 +8,18 @@ Enabling the use of smart contract wallets over EOAs.
 
 ## Contract Accounts vs EOAs
 
-If you've ever interacted with EVM networks, then you'll most likely have used an `EOA` (Externally Owned Account). EOAs are **accounts that are controlled by an external private key**. Only an EOA can trigger transactions on the blockchain and this currently makes it the default model for most users. Many popular wallets like a Ledger device, MetaMask browser extension, or Rainbow mobile app are EOAs.
+Account Abstraction is a blockchain technology that allows users to use smart contracts as their accounts.
 
-However, theres also a second type of account, which are `Contract Accounts`. These are **managed by code that live within the EVM as smart contracts**.
+The default account for most users is an Externally Owned Account, or `EOA`. EOAs are accounts controlled by an external private key. On most blockchain networks using the Ethereum Virtual Machine (EVM), only an EOA can trigger transactions so this is the default account model for most users.
 
-The goal of account abstraction is to consolidate these two account types and enable users to only have smart contract wallets without the need of an EOA.
+Unfortunately EOAs require users to know a lot about how a blockchain works to use them safely. We can create much better user experiences using `Contract Accounts`.
 
 ### Why use contract accounts?
 
 If you've ever tried to build Web3 apps with amazing user experiences you'll eventually hit road blocks that are imposed by the limitations of an EOA. In other words, the UX ceiling in terms of what you can achieve with an EOA is not very high. Here are some of the things contract accounts can enable that aren't possible with EOAs:
 
 - **🔑 Arbitrary verification logic**: Support single and multi sig verification and any arbitrary signature scheme.
-- **💱 Sponsored transactions**: Allow users to pay transaction fees in ERC-20 tokens or build your own fee logic.
+- **💱 Sponsored transactions**: Allow users to pay transaction fees in ERC-20 tokens or build your own fee logic, including sponsoring transaction fees on your app.
 - **🔒 Account security**: Enable social recovery and security features like time-locks and withdraw limits.
 - **⚛️ Atomic multi-operations**: Build flows that better align with your user's intent such as trading in one click rather than approving and swapping separately.
 
@@ -30,12 +30,16 @@ Account abstraction sounds great! But there are some down sides to also consider
 
 ## The state of account abstraction
 
-There have been multiple approaches to account abstraction over the years such as [EIP-86](https://eips.ethereum.org/EIPS/eip-86) and [EIP-2938](https://eips.ethereum.org/EIPS/eip-2938). However these weren't practical to achieve since they required consensus layer changes at a time where core developers are focused mainly on the merge and scalability.
+There have been multiple approaches to account abstraction over the years such as [EIP-86](https://eips.ethereum.org/EIPS/eip-86) and [EIP-2938](https://eips.ethereum.org/EIPS/eip-2938). Unfortunately these weren't practical to achieve since they required consensus layer changes.
 
-This is where [EIP-4337](https://eips.ethereum.org/EIPS/eip-4337) shines and is currently the best approach for the ecosystem to achieve account abstraction. It proposes a solution that **relies on higher-level infrastructure that avoids the need for consensus layer changes**. This means, unlike past proposals, developers can start building on a universal standard today.
+Luckily we can build account abstraction without consensus layer changes. A new standard, **[EIP-4337](https://eips.ethereum.org/EIPS/eip-4337)**, is a new approach to account abstraction that **relies on higher-level infrastructure that avoids the need for consensus layer changes**.
+
+This means, unlike past proposals, developers can start building on a universal standard today.
 
 ## The challenge for builders
 
-Although contract accounts offer the ability to build much better user experiences, they also introduce more complexity for developers to manage the interaction between different components like the `Bundler`, `EntryPoint`, `Wallet`, and `Paymaster`.
+Although contract accounts offer the ability to build much better user experiences, they also introduce more complexity for developers to manage the interaction between different components.
 
-**Stackup creates open source tools that are compliant with any implementation of ERC-4337. This allows developers to have an easier time building apps with account abstraction.**
+That's where Stackup comes in.
+
+**Stackup is a suite of open source tools for building applications with account abstraction.**
