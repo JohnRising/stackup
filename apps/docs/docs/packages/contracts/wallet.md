@@ -10,6 +10,25 @@ The easiest way to use the `Wallet` libraries is to compose your smart contracts
 
 The `Base` implements the core interface of an ERC-4337 wallet with a specific type of verification logic. The `Extensions` build on top of your `Base` to add common wallet functions.
 
+## Example Contract
+
+A smart contract wallet typically looks like this.
+
+```solidity
+// Example smart contract wallet composed of a base and extension.
+pragma solidity ^0.8.0
+
+// Import contracts from Stackup's contract library.
+// Base.sol and WithExtension.sol are placeholders only.
+import "@PackageName/contracts/ERC4337/wallet/Base.sol";
+import "@PackageName/contracts/ERC4337/wallet/WithExtension.sol";
+
+// Create the wallet
+contract Wallet is Base, WithExtension {
+  constructor(address entryPoint) Base(entryPoint) {}
+}
+```
+
 :::info
 
 If none of the implementations fit your use case, come chat with us on [Discord](https://discord.gg/FpXmvKrNed) or [E-mail](mailto:founders@stackup.sh) about getting it built!
@@ -24,8 +43,10 @@ Alternatively, the package also exports the minimum interface required to build 
 
 The minimum interface that must be implemented in order to be a compliant ERC-4337 wallet.
 
+This interface is included in all [`Base`](#base) contracts. If you use a pre-built `Base`, you do not need to add this interface to your wallet.
+
 ```solidity
-import @PackageName/contracts/ERC4337/wallet/IERC4337Wallet.sol;
+import "@PackageName/contracts/ERC4337/wallet/IERC4337Wallet.sol";
 ```
 
 ```solidity
@@ -39,7 +60,7 @@ interface IERC4337Wallet {
 
 ```
 
-The `validateUserOp` function is what get's called by the `EntryPoint` during the [verification phase](../../introduction/erc-4337-overview.md#entrypoint). It has the following arguments:
+The `validateUserOp` function is called by the `EntryPoint` during the [verification phase](../../introduction/erc-4337-overview.md#entrypoint). It has the following arguments:
 
 - [`UserOperation`](./useroperation.md)
 - `requestId`: Hash of `UserOperation`, `EntryPoint` address, and `chainId`
@@ -65,11 +86,15 @@ These implementations will also encode signatures in specific ways depending on 
 
 ### `BaseEOAOwner`
 
-Uses a single EOA as the owner. The current owner can initiate a transfer of ownership to a new EOA.
+This base implementation uses a single EOA as the owner. The current owner can initiate a transfer of ownership to a new EOA.
+
+To use it, import it from the Stackup contracts library:
 
 ```solidity
-import @PackageName/contracts/ERC4337/wallet/BaseEOAOwner.sol;
+import "@PackageName/contracts/ERC4337/wallet/BaseEOAOwner.sol";
 ```
+
+And select it as the base in your wallet contract.
 
 ```solidity
 contract Wallet is BaseEOAOwner {
@@ -80,28 +105,26 @@ contract Wallet is BaseEOAOwner {
 
 #### Functions
 
-Used to initialize a Proxy. Can only be called once.
+The `initialize` function is used to initialize a Proxy. Can only be called once.
 
 ```solidity
 function initialize(address owner) external initializer;
 
 ```
 
-Read only function for returning the address of the current owner.
+The read only function `getOwner` returns the address of the current owner.
 
 ```solidity
 function getOwner() external view returns (address);
-
 ```
 
-External function for transferring ownership to a new `EOA` address.
+To transfer ownership to a new EOA, call `transferOwner`.
 
 ```solidity
 function transferOwner(address account) external authenticate;
-
 ```
 
-Internal function to validate if a hash was signed by the current owner.
+`_validateSignature` is an internal function to validaate if a hash was signed by the current owner.
 
 ```solidity
 function _validateSignature(
@@ -140,7 +163,7 @@ function _validateSignature(
 
 ## Extensions
 
-Although these are not part of the ERC-4337 spec, they may still be useful in building out your specific use cases.
+Extensions are contracts that can be added to a `Base` wallet to increase its functionality. Although these are not part of the ERC-4337 spec, they may still be useful in building out your specific use cases.
 
 You can replace `WithExtensionName` for any of the importable extensions below. Any one [`Base`](#base) can also be paired with multiple `Extensions`.
 
@@ -153,28 +176,50 @@ contract Wallet is BaseEOAOwner, WithExtensionName {
 
 ### `WithReceive`
 
-Enables wallet to receive ETH transfers.
+The extension `WithReceive` enables wallets to receive native token transfers.
+
+To use it in your wallets, import `WithReceive` from the Stackup contracts library:
 
 ```solidity
-import @PackageName/contracts/ERC4337/wallet/WithReceive.sol
+import "@PackageName/contracts/ERC4337/wallet/WithReceive.sol";
+```
+
+And add it as an extension in your wallet contract. For example:
+
+```solidity
+// Example ERC-4337 wallet with an EOA owner.
+// This wallet can receive a blockchain's native currency, such as ETH or MATIC.
+pragma solidity ^0.8.0
+
+import "@PackageName/contracts/ERC4337/wallet/BaseEOAOwner.sol";
+import "@PackageName/contracts/ERC4337/wallet/WithReceive.sol";
+
+contract Wallet is BaseEOAOwner, WithReceive {
+  constructor(address entryPoint) BaseEOAOwner(entryPoint) {}
+}
 ```
 
 #### Functions
 
+The `WithReceive` extension has a single public function, `receive`:
+
 ```solidity
 receive() external payable;
-
 ```
 
 ### `WithExecute`
 
-Enables wallet to send internal transactions to any address.
+The extension `WithExecute` enables wallets to send internal transactions to any address.
+
+In your smart contract, import it from the Stackup contracts library:
 
 ```solidity
-import @PackageName/contracts/ERC4337/wallet/WithExecute.sol
+import "@PackageName/contracts/ERC4337/wallet/WithExecute.sol";
 ```
 
 #### Functions
+
+The `WithExecute` extension has a single public function, `execute`:
 
 ```solidity
 function execute(
@@ -187,13 +232,17 @@ function execute(
 
 ### `WithExecuteBatch`
 
-Similar to [`WithExecute`](#withexecute) but with the added function of executing an array of internal transactions. This allows a wallet to support atomic multi-operations.
+The extension `WithExecuteBatch` is similar to [`WithExecute`](#withexecute) but allows an array of internal transactions to be executed. This allows a wallet to support atomic multi-operations.
+
+`WithExecuteBatch` can be imported directly from the Stackup contracts library:
 
 ```solidity
 import @PackageName/contracts/ERC4337/wallet/WithExecuteBatch.sol
 ```
 
 #### Functions
+
+The `WithExecuteBatch` extension has a single public function, `executeBatch`:
 
 ```solidity
 function executeBatch(InternalTransaction[] calldata transactions)
@@ -203,6 +252,8 @@ function executeBatch(InternalTransaction[] calldata transactions)
 ```
 
 #### Types
+
+The `WithExecuteBatch` extension includes an `InternalTransaction` type:
 
 ```solidity
 struct InternalTransaction {
