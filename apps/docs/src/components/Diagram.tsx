@@ -135,7 +135,7 @@ export default function Diagram(): JSX.Element {
           >
             EntryPoint
           </text>
-          <a href="../packages/paymaster">
+          <a href="../category/paymaster">
             <rect
               x="176.5"
               y="221.217"
