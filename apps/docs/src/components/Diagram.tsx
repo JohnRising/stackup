@@ -44,7 +44,7 @@ export default function Diagram(): JSX.Element {
               fill="#F3F3F3"
             />
           </a>
-          <a href="../category/paymaster">
+          <a href="../category/paymaster-connect">
             <rect
               x="152.5"
               y="208.233"
@@ -58,7 +58,7 @@ export default function Diagram(): JSX.Element {
               fill="#F3F3F3"
             />
           </a>
-          <a href="../category/client">
+          <a href="../category/bundler">
             <rect
               x="301.5"
               y="116.351"
@@ -135,7 +135,7 @@ export default function Diagram(): JSX.Element {
           >
             EntryPoint
           </text>
-          <a href="../category/paymaster">
+          <a href="../category/paymaster-connect">
             <rect
               x="176.5"
               y="221.217"
@@ -151,12 +151,12 @@ export default function Diagram(): JSX.Element {
               font-family="Arial,Arial_MSFontService,sans-serif"
               font-weight="400"
               font-size="8"
-              transform="matrix(1 0 0 0.998721 196.26 236)"
+              transform="matrix(1 0 0 0.998721 181.26 236)"
             >
-              Paymaster
+              Paymaster Connect
             </text>
           </a>
-          <a href="../category/client">
+          <a href="../category/bundler">
             <rect
               x="326.5"
               y="139.322"
@@ -172,12 +172,12 @@ export default function Diagram(): JSX.Element {
               font-family="Arial,Arial_MSFontService,sans-serif"
               font-weight="400"
               font-size="8"
-              transform="matrix(1 0 0 0.998721 355.175 154)"
+              transform="matrix(1 0 0 0.998721 334.175 154)"
             >
-              Client
+              JSON RPC Client
             </text>
           </a>
-          <a href="../category/client">
+          <a href="../category/bundler">
             <rect
               x="540.5"
               y="139.322"
@@ -280,7 +280,7 @@ export default function Diagram(): JSX.Element {
               font-size="8"
               transform="matrix(1 0 0 0.998721 798.052 165)"
             >
-              Paymaster{" "}
+              Paymaster
               <tspan font-size="8" x="4.00073" y="9.01152">
                 Contract
               </tspan>
@@ -340,7 +340,7 @@ export default function Diagram(): JSX.Element {
           />
           <a href="../category/client-sdk">
             <text
-              fill="#1679EF"
+              fill="#8481ff"
               font-family="Arial,Arial_MSFontService,sans-serif"
               font-weight="700"
               font-size="8"
@@ -348,47 +348,39 @@ export default function Diagram(): JSX.Element {
             >
               Client SDK
             </text>
-            <path
-              d="M0 8.98849 20.4738 8.98849 40.9476 8.98849 40.9476 9.98721 20.4738 9.98721 0 9.98721Z"
-              fill="#1679EF"
-              fill-rule="evenodd"
-              transform="matrix(1.00128 0 0 1 151.845 104.44)"
-            />
           </a>
-          <a href="../category/paymaster">
+          <a href="../category/paymaster-connect">
             <text
-              fill="#1679EF"
+              fill="#8481ff"
+              font-family="Arial,Arial_MSFontService,sans-serif"
+              font-weight="700"
+              font-size="8"
+              transform="matrix(1 0 0 0.998721 151.845 195)"
+            >
+              Paymaster
+            </text>
+            <text
+              fill="#8481ff"
               font-family="Arial,Arial_MSFontService,sans-serif"
               font-weight="700"
               font-size="8"
               transform="matrix(1 0 0 0.998721 151.845 205)"
             >
-              Paymaster
+              {" "}
+              Connect
             </text>
           </a>{" "}
-          <path
-            d="M0 8.98849 20.4738 8.98849 40.9476 8.98849 40.9476 9.98721 20.4738 9.98721 0 9.98721Z"
-            fill="#1679EF"
-            fill-rule="evenodd"
-            transform="matrix(1.00128 0 0 1 151.845 196.748)"
-          />
-          <a href="../category/client">
+          <a href="../category/bundler">
             <text
-              fill="#1679EF"
+              fill="#8481ff"
               font-family="Arial,Arial_MSFontService,sans-serif"
               font-weight="700"
               font-size="8"
               transform="matrix(1 0 0 0.998721 301.352 112)"
             >
-              Client
+              Bundler
             </text>
           </a>
-          <path
-            d="M0 8.98849 21.9719 8.98849 21.9719 9.98721 0 9.98721Z"
-            fill="#1679EF"
-            fill-rule="evenodd"
-            transform="matrix(1.00128 0 0 1 301.352 104.44)"
-          />
           <text
             font-family="Arial,Arial_MSFontService,sans-serif"
             font-weight="400"
@@ -407,7 +399,7 @@ export default function Diagram(): JSX.Element {
             </tspan>
             <a href="../category/contracts">
               <tspan
-                fill="#1679EF"
+                fill="#8481ff"
                 font-weight="700"
                 font-size="8"
                 x="687.261"
@@ -417,12 +409,6 @@ export default function Diagram(): JSX.Element {
               </tspan>
             </a>
           </text>
-          <path
-            d="M0 8.98849 18.9757 8.98849 37.9514 8.98849 37.9514 9.98721 18.9757 9.98721 0 9.98721Z"
-            fill="#1679EF"
-            fill-rule="evenodd"
-            transform="matrix(1.00128 0 0 1 764.142 104.44)"
-          />
           <text
             font-family="Arial,Arial_MSFontService,sans-serif"
             font-weight="400"

@@ -173,7 +173,7 @@ const builder = new UserOperationBuilder()
 
 ### Middleware Functions
 
-Some fragments on a `UserOperation` may depend on custom logic in order to be built. For example, based on your `Wallet` implementation there might be a specific way to fetch the `nonce` and sign an operation which aren't specified in the standard.
+Some fragments on a `UserOperation` may depend on custom logic in order to be built. For example, based on your `Wallet Contract` implementation there might be a specific way to fetch the `nonce` and sign an operation which aren't specified in the standard.
 
 For such cases we can set custom middleware functions. During `buildOp`, a middleware will be called in the order they are set. Here is a example of middleware functions you might have in your application:
 

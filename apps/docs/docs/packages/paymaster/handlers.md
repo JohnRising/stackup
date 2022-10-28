@@ -6,17 +6,17 @@ sidebar_position: 3
 
 Functions for handling paymaster business logic.
 
-The `Paymaster` framework allows you to create arbitrary fee logic for your application. All paymasters need to:
+The `Paymaster Connect` framework allows you to manage your `Paymaster Contracts` and any fee logic you want to use for your application. All paymasters need to:
 
 1. Approve a `UserOperation`
 2. Manage its stake on the `EntryPoint`
 3. Manage its own assets
 
-The framework will generate boilerplate handlers for certain functions. We can program these handlers to give us maximum flexibility in how we build the fee logic in our apps.
+The `Paymaster Connect` framework will generate boilerplate handlers for certain functions. We can program these handlers to give us maximum flexibility in how we build the fee logic in our apps.
 
 ## Sign
 
-The `sign` handler allows you to sign a message using your paymaster's private key.
+The `sign` handler allows you to sign a message using your `Paymaster Contract`'s private key.
 
 A big benefit of account abstraction is that it is agnostic to any signature scheme. This handler allows you to implement custom logic to sign a given message.
 

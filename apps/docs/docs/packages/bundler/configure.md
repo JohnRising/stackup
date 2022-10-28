@@ -4,9 +4,9 @@ sidebar_position: 2
 
 # Configure
 
-Options to configure a standalone RPC client.
+Options to configure a standalone Bundler and RPC client.
 
-The client can be configured through environment variables. Some variables may be required while others are optional.
+The Bundler can be configured through environment variables. Some variables may be required while others are optional.
 
 ## Environment variables
 

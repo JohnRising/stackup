@@ -6,19 +6,19 @@ sidebar_position: 2
 
 Options to configure a paymaster service.
 
-The `Paymaster` service can be configured either through a `.paymasterrc.json` file or using environment variables.
+The `Paymaster Connect` service can be configured either through a `.paymasterrc.json` file or using environment variables.
 
 ## JSON options
 
 ```json
 {
-  // Port to run the Paymaster on.
+  // Port to run Paymaster Connect on.
   "port": 3001,
 
   // Connection string to a standard Ethereum node.
   "rpcUrl": "",
 
-  // Connection string to a standard ERC-4337 client.
+  // Connection string to a standard ERC-4337 Bundler RPC client.
   "erc4337RpcUrl": "",
 
   // Array of EntryPoint addresses to support.

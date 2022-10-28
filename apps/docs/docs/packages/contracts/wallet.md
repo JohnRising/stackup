@@ -4,9 +4,9 @@ sidebar_position: 4
 
 # Wallet
 
-Solidity components for ERC-4337 Wallets.
+Solidity components for ERC-4337 Wallet Contracts.
 
-The easiest way to use the `Wallet` libraries is to compose your smart contracts with one `Base` and a combination of `Extensions` that fit your use case.
+The easiest way to use the wallet libraries is to compose your smart contracts with one `Base` and a combination of `Extensions` that fit your use case.
 
 The `Base` implements the core interface of an ERC-4337 wallet with a specific type of verification logic. The `Extensions` build on top of your `Base` to add common wallet functions.
 
@@ -34,7 +34,7 @@ contract Wallet is Base, WithExtension {
 
 If none of the implementations fit your use case, come chat with us on [Discord](https://discord.gg/FpXmvKrNed) or [E-mail](mailto:founders@stackup.sh) about getting it built!
 
-Alternatively, the package also exports the minimum interface required to build your own `Wallet` that is compliant with the spec.
+Alternatively, the package also exports the minimum interface required to build your own `Wallet Contract` that is compliant with the spec.
 
 :::
 
@@ -72,7 +72,7 @@ The `validateUserOp` function is called by the `EntryPoint` during the [verifica
 
 ## Base
 
-Base implementations of an ERC-4337 wallet. **Use one that matches the verification method you require.**
+Base implementations of an ERC-4337 `Wallet Contract`. **Use one that matches the verification method you require.**
 
 :::info
 
@@ -97,7 +97,7 @@ import "@PackageName/contracts/ERC4337/wallet/BaseEOAOwner.sol";
 
 ```
 
-And select it as the base in your wallet contract.
+And select it as the base in your `Wallet Contract`.
 
 ```solidity
 contract Wallet is BaseEOAOwner {
@@ -168,7 +168,7 @@ function _validateSignature(
 
 ## Extensions
 
-Extensions are contracts that can be added to a `Base` wallet to increase its functionality. Although these are not part of the ERC-4337 spec, they may still be useful in building out your specific use cases.
+Extensions are contracts that can be added to a `Base` to increase a `Wallet Contract`'s functionality. Although these are not part of the ERC-4337 spec, they may still be useful in building out your specific use cases.
 
 You can replace `WithExtensionName` for any of the importable extensions below. Any one [`Base`](#base) can also be paired with multiple `Extensions`.
 
@@ -219,7 +219,7 @@ receive() external payable;
 
 The extension `WithExecute` enables wallets to send internal transactions to any address.
 
-In your smart contract, import it from the Stackup contracts library:
+In your `Wallet Contract`, import `WithExecute` from the Stackup contracts library:
 
 ```solidity
 import "@PackageName/contracts/ERC4337/wallet/WithExecute.sol";

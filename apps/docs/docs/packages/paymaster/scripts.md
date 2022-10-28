@@ -14,17 +14,17 @@ yarn run PackageName <command> --flag=value
 
 ## Managing stake
 
-A paymaster must stake a blockchain's native token (usually ETH) to the `EntryPoint` contract in order to sponsor a wallet's `UserOperation`. These commands are used to help manage the stake on a supported `EntryPoint`.
+A `Paymaster Contract` must stake a blockchain's native token (usually ETH) to the `EntryPoint` contract in order to sponsor a wallet's `UserOperation`. These commands are used to help manage the stake on a supported `EntryPoint`.
 
 ### `addStake`
 
-Adds stake to a paymaster contract.
+Adds stake to a `Paymaster Contract`.
 
-In order to consent to being a paymaster, you will need to send and lock an amount of ETH to the `EntryPoint` to be staked. It can only be unlocked after a given time set by `unstakeDelaySec`. This action will also cancel any pending unlock.
+In order to consent to being a paymaster, a `Paymaster Contract` will need to send and lock an amount of ETH to the `EntryPoint` to be staked. It can only be unlocked after a given time set by `unstakeDelaySec`. This action will also cancel any pending unlock.
 
 :::tip
 
-Use this command to initialize your account as a paymaster. If you are topping up your balance, use `depositTo` instead.
+Use this command to initialize your contract as a `Paymaster Contract`. If you are topping up your balance, use `depositTo` instead.
 
 :::
 
@@ -52,7 +52,7 @@ yarn run PackageName unlockStake
 
 ### `withdrawStake`
 
-Withdraws the paymaster's stake if the delay period set by `unstakeDelaySec` has ended.
+Withdraws the `Paymaster Contract`'s stake if the delay period set by `unstakeDelaySec` has ended.
 
 ```bash
 yarn run PackageName withdrawStake
@@ -60,7 +60,7 @@ yarn run PackageName withdrawStake
 
 | Flags             | Description                                   | Default                                              |
 | ----------------- | --------------------------------------------- | ---------------------------------------------------- |
-| `withdrawAddress` | The address to send the withdrawn stake to.   | The paymaster address.                               |
+| `withdrawAddress` | The address to send the withdrawn stake to.   | The `Paymaster Contract` address.                    |
 | `entryPoint`      | The supported `EntryPoint` address to target. | The first `EntryPoint` address in the configuration. |
 
 ## Managing deposit
@@ -69,7 +69,7 @@ When sponsoring a `UserOperation`, the `EntryPoint` will charge the transaction 
 
 ### `balanceOf`
 
-Gets the current deposit balance for an account.
+Gets the current deposit balance for a `Paymaster Contract`.
 
 ```bash
 yarn run PackageName balanceOf
@@ -77,12 +77,12 @@ yarn run PackageName balanceOf
 
 | Flags        | Description                                   | Default                                              |
 | ------------ | --------------------------------------------- | ---------------------------------------------------- |
-| `account`    | The address of the account to retrieve.       | The paymaster address.                               |
+| `account`    | The address of the account to retrieve.       | The `Paymaster Contract` address.                    |
 | `entryPoint` | The supported `EntryPoint` address to target. | The first `EntryPoint` address in the configuration. |
 
 ### `depositTo`
 
-Adds to the current deposit of a given account.
+Adds to the current deposit of a given `Paymaster Contract`.
 
 ```bash
 yarn run PackageName depositTo
@@ -91,7 +91,7 @@ yarn run PackageName depositTo
 | Flags        | Description                                   | Default                                              |
 | ------------ | --------------------------------------------- | ---------------------------------------------------- |
 | `value`      | Amount in ETH to deposit.                     | 1 ETH.                                               |
-| `account`    | The address of the account to top up.         | The paymaster address.                               |
+| `account`    | The address of the account to top up.         | The `Paymaster Contract` address.                    |
 | `entryPoint` | The supported `EntryPoint` address to target. | The first `EntryPoint` address in the configuration. |
 
 ### `withdrawTo`
@@ -104,6 +104,6 @@ yarn run PackageName withdrawTo
 
 | Flags             | Description                                   | Default                                              |
 | ----------------- | --------------------------------------------- | ---------------------------------------------------- |
-| `withdrawAddress` | The address to send the withdrawn deposit to. | The paymaster address.                               |
+| `withdrawAddress` | The address to send the withdrawn deposit to. | The `Paymaster Contract` address.                    |
 | `withdrawAmount`  | The amount to withdraw.                       | The sender's max deposit.                            |
 | `entryPoint`      | The supported `EntryPoint` address to target. | The first `EntryPoint` address in the configuration. |
