@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Installation
 
-A guide to spinning up a paymaster to sponsor ops.
+A guide to spinning up Paymaster Connect to sponsor UserOperations.
 
 :::caution
 
@@ -16,7 +16,7 @@ In the meantime, feel free the to read the docs and give us your feedback on [Di
 
 ## Automatic setup
 
-The Paymaster will be available in JavaScript and hosted on NPM.
+`Paymaster Connect` will be available in JavaScript and hosted on NPM.
 
 :::caution
 

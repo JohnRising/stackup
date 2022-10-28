@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # Client
 
-A connection to an ERC-4337 client node.
+A connection to an ERC-4337 bundler client.
 
 An instance of a `ERC4337ClientRpc` is an abstraction to support the following RPC methods as outlined in the EIP:
 
@@ -129,6 +129,6 @@ This method will switch the client to the specified `EntryPoint` address or thro
 
 ## JSONRpcError
 
-In the event of a failed RPC request the `client` will throw a `JSONRpcError`. This `error` object will have the following schema as outlined by the [JSON-RPC spec](https://www.jsonrpc.org/specification#error_object).
+In the event of a failed RPC request the client will throw a `JSONRpcError`. This `error` object will have the following schema as outlined by the [JSON-RPC spec](https://www.jsonrpc.org/specification#error_object).
 
 Client specific `codes` and `messages` may also be used which aren't defined in the standard.

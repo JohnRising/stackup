@@ -12,7 +12,7 @@ All RPC methods listed here are required to be compliant as an ERC-4337 client.
 
 ### `eth_sendUserOperation`
 
-Used to submit a [`UserOperation`](../../introduction/erc-4337-overview.md#useroperation) to the client's mempool.
+Used to submit a [`UserOperation`](../../introduction/erc-4337-overview.md#useroperation) to the Bundler's mempool.
 
 #### Request
 
@@ -68,7 +68,7 @@ Used to submit a [`UserOperation`](../../introduction/erc-4337-overview.md#usero
 
 ### `eth_supportedEntryPoints`
 
-Returns an array of supported [EntryPoint](../../introduction/erc-4337-overview.md#entrypoint) addresses as specified in the [configuration](./configure.md). The first element is the client's preferred EntryPoint.
+Returns an array of supported [EntryPoint](../../introduction/erc-4337-overview.md#entrypoint) addresses as specified in the [configuration](./configure.md). The first element is the Bundler client's preferred EntryPoint.
 
 #### Request
 

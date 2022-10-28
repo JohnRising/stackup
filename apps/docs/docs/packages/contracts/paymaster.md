@@ -4,11 +4,11 @@ sidebar_position: 5
 
 # Paymaster
 
-Solidity components for ERC-4337 Paymasters.
+Solidity components for ERC-4337 `Paymaster Contracts`.
 
-A `Paymaster` is a `Contract Account` designed to pay fees. It is constructed from a wallet `Base` and is paired with one `Paymaster` extension.
+A `Paymaster Contract` is a `Contract Account` designed to pay fees. It is constructed from a wallet `Base` and is paired with one [paymaster implementation](#implementations).
 
-Unlike wallet `Extensions`, you should only use one `Paymaster` per wallet.
+Unlike wallet `Extensions`, you should only use one paymaster implementation in the `Paymaster Contract`.
 
 ## Example Paymaster Contract
 
@@ -29,6 +29,8 @@ contract Paymaster is BaseEOAOwner, SimplePaymaster {
 
 ```
 
+In this example, the `Paymaster Contract` uses `SimplePaymaster` as the template for its paymaster logic, and will validate signatures in accordance with `BaseEOAOwner`.
+
 :::info
 
 If none of the implementations fit your use case, come chat with us on [Discord](https://discord.gg/FpXmvKrNed) or [E-mail](mailto:founders@stackup.sh) about getting it built!
@@ -41,9 +43,9 @@ Alternatively, the package also exports the minimum interface required to build 
 
 ## Minimum viable interface
 
-This is the minimum interface that must be implemented in order to be a compliant ERC-4337 paymaster.
+This is the minimum interface that must be implemented in order to be a compliant ERC-4337 `Paymaster Contract`.
 
-This interface is included in all [`Paymaster` implementations](#implementations).
+This interface is included in all [paymaster implementations](#implementations).
 
 ```solidity
 import @PackageName/contracts/ERC4337/paymaster/IERC4337Paymaster.sol;
@@ -88,11 +90,11 @@ If `validatePaymasterUserOp` agrees to sponsor the transaction it will return a 
 
 ## Implementations
 
-Stackup has various implementations of an ERC-4337 paymaster. Use one that matches the fee logic you require. A `Paymaster` will validate a signature in accordance with the [`Base`](./wallet.md#base) used.
+Stackup has various implementations of an ERC-4337 paymaster. Use one that matches the fee logic you require. A `Paymaster Contract` will validate a signature in accordance with the [`Base`](./wallet.md#base) used.
 
 ### `SimplePaymaster`
 
-If the `requestId` signature is valid, the `Paymaster` will agree to sponsor the `UserOperation` without doing anything else in `postOp`. This could be a good option for apps where the business logic for transaction fees happens either off-chain or through some other mechanism.
+If the `requestId` signature is valid, the `Paymaster Contract` will agree to sponsor the `UserOperation` without doing anything else in `postOp`. This could be a good option for apps where the business logic for transaction fees happens either off-chain or through some other mechanism.
 
 To use the `SimplePaymaster` implementation, import it from the package:
 

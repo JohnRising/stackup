@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Install
 
-A guide to spinning up an RPC client to handle ops.
+A guide to spinning up a bundler and RPC client to handle ops.
 
 This package is a Go implementation of an ERC-4337 `Bundler`. The current version supports a private mempool with a peer-to-peer (P2P) version on the roadmap.
 
