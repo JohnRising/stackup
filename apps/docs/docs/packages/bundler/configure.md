@@ -13,14 +13,11 @@ The Bundler can be configured through environment variables. Some variables may 
 Required variables:
 
 ```bash
+# Connection string to a standard Ethereum node.
+ERC4337_BUNDLER_ETH_CLIENT_URL
+
 # The private key for the EOA used to relay bundles to the EntryPoint.
 ERC4337_BUNDLER_PRIVATE_KEY
-
-# Connection string to a Redis backed mempool.
-ERC4337_BUNDLER_REDIS_URL
-
-# Connection string to a standard Ethereum node.
-ERC4337_BUNDLER_RPC_URL
 ```
 
 Optional variables:
@@ -29,6 +26,10 @@ Optional variables:
 # Port to run the Client on.
 # Defaults to 4337
 ERC4337_BUNDLER_PORT
+
+# Data directory to store embedded mempool.
+# Defaults to /tmp/stackup_bundler
+ERC4337_BUNDLER_DATA_DIRECTORY
 
 # Comma separated EntryPoint addresses to support.
 # The first address is the preferred EntryPoint.
