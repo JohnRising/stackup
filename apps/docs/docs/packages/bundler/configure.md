@@ -36,8 +36,11 @@ ERC4337_BUNDLER_DATA_DIRECTORY
 # Defaults to 0x1b98F08dB8F12392EAE339674e568fe29929bC47
 ERC4337_BUNDLER_SUPPORTED_ENTRY_POINTS
 
-
 # Address to send gas refunds for relaying bundlers.
 # Defaults to the public address of the private key.
 ERC4337_BUNDLER_BENEFICIARY
+
+# The maximum verificationGasLimit on a received UserOperation.
+# Defaults to 100000
+ERC4337_BUNDLER_MAX_VERIFICATION_GAS
 ```
