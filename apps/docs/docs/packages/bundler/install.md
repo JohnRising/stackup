@@ -18,14 +18,6 @@ Come chat with us on [Discord](https://discord.gg/FpXmvKrNed) or [E-mail](mailto
 
 :::
 
-:::caution
-
-**🛠 This package is under active development**
-
-In the meantime, feel free the to read the docs and give us your feedback on [Discord](https://discord.gg/FpXmvKrNed)! 💬
-
-:::
-
 ## Via `go install`
 
 Make sure to have your environment variables configured before running the client. See the [configure page](./configure.md) for details.
