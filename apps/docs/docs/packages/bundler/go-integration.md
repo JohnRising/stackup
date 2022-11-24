@@ -21,7 +21,7 @@ go get -u github.com/stackup-wallet/stackup-bundler
 All packages that can be imported live in the `pkg` directory. The full Go documentation of all available packages can be found [here](https://pkg.go.dev/github.com/stackup-wallet/stackup-bundler/pkg).
 
 ```go
-import "github.com/stackup-wallet/stackup-bundler/pkg/bundler/..."
+import "github.com/stackup-wallet/stackup-bundler/pkg/..."
 ```
 
 ## Concepts
