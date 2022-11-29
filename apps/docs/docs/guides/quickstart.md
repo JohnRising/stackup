@@ -76,7 +76,7 @@ The `simpleWallet:transfer` command allows you to transfer MATIC from the smart 
 yarn run simpleWallet:transfer [address] [amount]
 ```
 
-You can then find the transaction using a block explorer like [polygonscan](mumbai.polygonscan.com/).
+You can then find the transaction using a block explorer like [polygonscan](https://mumbai.polygonscan.com/).
 
 ## That's it!
 
