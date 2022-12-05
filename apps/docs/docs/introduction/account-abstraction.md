@@ -6,6 +6,8 @@ sidebar_position: 1
 
 Enabling the use of smart contract wallets over EOAs.
 
+<div class="video"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/wnh8Ea6aYM8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+
 ## Contract Accounts vs EOAs
 
 Account Abstraction is a blockchain technology that allows users to use smart contracts as their accounts.
