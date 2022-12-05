@@ -28,3 +28,9 @@
   --ifm-color-primary-lightest: #b2b0ff;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+
+div.video {
+  aspect-ratio: 16/9;
+  align: center;
+  width: 100%;
+}
